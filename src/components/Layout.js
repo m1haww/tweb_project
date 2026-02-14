@@ -9,9 +9,15 @@ function Layout() {
           ASO Dashboard
         </Link>
         <nav className="layout-nav">
-          <Link to="/">Acasă</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/">Home</Link>
+          <Link to="/login">Pricing</Link>
+          <Link to="/login">Blog</Link>
         </nav>
+        <div className="layout-actions">
+          <Link to="/login" className="btn-login">Log In</Link>
+          <Link to="/login" className="btn-cta">Book a call</Link>
+          <Link to="/login" className="btn-cta primary">Sign up</Link>
+        </div>
       </header>
       <main className="layout-main">
         <Outlet />

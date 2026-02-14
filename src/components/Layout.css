@@ -2,35 +2,89 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.5rem;
-  background: white;
-  border-bottom: 1px solid #dee2e6;
+  padding: 0.875rem 2rem;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .layout-logo {
   font-weight: 700;
-  font-size: 1.125rem;
-  color: #212529;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+  color: #111;
   text-decoration: none;
 }
 
 .layout-logo:hover {
-  color: #0d6efd;
+  color: #111;
 }
 
 .layout-nav {
   display: flex;
-  gap: 1.25rem;
+  align-items: center;
+  gap: 2rem;
 }
 
 .layout-nav a {
-  color: #495057;
+  color: #4b5563;
   text-decoration: none;
   font-size: 0.9375rem;
+  font-weight: 500;
 }
 
 .layout-nav a:hover {
-  color: #0d6efd;
+  color: #111;
+}
+
+.layout-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.layout-actions .btn-login {
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.layout-actions .btn-login:hover {
+  color: #111;
+}
+
+.layout-actions .btn-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #111;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.layout-actions .btn-cta:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+}
+
+.layout-actions .btn-cta.primary {
+  background: #ea580c;
+  color: #fff;
+  border-color: #ea580c;
+}
+
+.layout-actions .btn-cta.primary:hover {
+  background: #c2410c;
+  border-color: #c2410c;
 }
 
 .layout-main {
