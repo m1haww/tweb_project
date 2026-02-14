@@ -16,7 +16,7 @@ function LandingPage() {
             <Link to="/login" className="landing-cta primary">
               Book a call
             </Link>
-            <Link to="/login" className="landing-cta secondary">
+            <Link to="/signup" className="landing-cta secondary">
               Start for free
             </Link>
           </div>

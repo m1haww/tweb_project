@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './Layout.css';
 
 function Layout() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -31,9 +33,20 @@ function Layout() {
           <Link to="/login">Blog</Link>
         </nav>
         <div className="layout-actions">
-          <Link to="/login" className="btn-login">Log In</Link>
-          <Link to="/login" className="btn-cta">Book a call</Link>
-          <Link to="/login" className="btn-cta primary">Sign up</Link>
+          {user ? (
+            <>
+              <Link to="/account" className="btn-login">Account</Link>
+              <button type="button" className="btn-cta" onClick={logout}>
+                Log out
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login" className="btn-login">Log In</Link>
+              <Link to="/login" className="btn-cta">Book a call</Link>
+              <Link to="/signup" className="btn-cta primary">Sign up</Link>
+            </>
+          )}
         </div>
       </header>
 

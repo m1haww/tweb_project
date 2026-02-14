@@ -3,24 +3,24 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import './LoginPage.css';
 
-function LoginPage() {
+function SignUpPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { signUp } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!email.trim()) return;
-    login(email.trim(), password);
+    signUp(email.trim(), password);
     navigate('/account', { replace: true });
   };
 
   return (
     <div className="login-page">
       <div className="login-card">
-        <h1 className="login-title">Sign in</h1>
-        <p className="login-subtitle">Access the ASO & Analytics dashboard.</p>
+        <h1 className="login-title">Sign up</h1>
+        <p className="login-subtitle">Create an account to use the dashboard.</p>
 
         <form className="login-form" onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
@@ -38,23 +38,21 @@ function LoginPage() {
             id="password"
             type="password"
             placeholder="••••••••"
-            autoComplete="current-password"
+            autoComplete="new-password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button type="submit" className="login-submit">
-            Sign in
+            Sign up
           </button>
         </form>
 
         <p className="login-back">
-          Don&apos;t have an account? <Link to="/signup">Sign up</Link>
-          {' · '}
-          <Link to="/">Back to home</Link>
+          Already have an account? <Link to="/login">Sign in</Link>
         </p>
       </div>
     </div>
   );
 }
 
-export default LoginPage;
+export default SignUpPage;
