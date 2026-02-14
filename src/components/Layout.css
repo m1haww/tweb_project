@@ -10,6 +10,38 @@
   z-index: 100;
 }
 
+.layout-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.layout-menu-trigger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.layout-menu-trigger:hover {
+  background: #f3f4f6;
+}
+
+.menu-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #374151;
+  border-radius: 1px;
+}
+
 .layout-logo {
   font-weight: 700;
   font-size: 1.25rem;
@@ -85,6 +117,58 @@
 .layout-actions .btn-cta.primary:hover {
   background: #c2410c;
   border-color: #c2410c;
+}
+
+/* Vertical sidebar – appears when 3 lines are clicked */
+.layout-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 199;
+}
+
+.layout-sidebar {
+  position: fixed;
+  top: 53px;
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 53px);
+  padding: 1rem 0;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.06);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transform: translateX(-100%);
+  transition: transform 0.2s ease;
+}
+
+.layout-sidebar.open {
+  transform: translateX(0);
+}
+
+.layout-sidebar .layout-menu-item {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.layout-sidebar .layout-menu-item:hover {
+  color: #111;
+  background: #f9fafb;
+}
+
+.layout-sidebar .layout-menu-item.active {
+  color: #ea580c;
+  background: #fff7ed;
+  border-left-color: #ea580c;
 }
 
 .layout-main {
