@@ -1,0 +1,38 @@
+.layout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.layout-logo {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #212529;
+  text-decoration: none;
+}
+
+.layout-logo:hover {
+  color: #0d6efd;
+}
+
+.layout-nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.layout-nav a {
+  color: #495057;
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.layout-nav a:hover {
+  color: #0d6efd;
+}
+
+.layout-main {
+  flex: 1;
+}
