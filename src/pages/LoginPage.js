@@ -20,7 +20,7 @@ function LoginPage() {
       await login(email.trim(), password);
       navigate('/account', { replace: true });
     } catch (err) {
-      setError(err.message || 'Autentificare eșuată.');
+      setError(err.message || 'Sign in failed.');
     } finally {
       setSubmitting(false);
     }

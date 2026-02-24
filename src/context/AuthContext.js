@@ -54,15 +54,24 @@ export function AuthProvider({ children }) {
     }
   }, [fetchMe]);
 
+  const parseResponse = async (res) => {
+    const text = await res.text();
+    try {
+      return text ? JSON.parse(text) : {};
+    } catch {
+      return { message: text || 'Server error.' };
+    }
+  };
+
   const signUp = async (email, password, name = '') => {
     const res = await fetch(`${API_URL}/api/auth/register`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password, name: name || null }),
     });
-    const data = await res.json();
+    const data = await parseResponse(res);
     if (!res.ok) {
-      throw new Error(data.message || data.title || 'Înregistrarea a eșuat.');
+      throw new Error(data.message || data.title || 'Registration failed.');
     }
     persistAuth(data.token, data.user);
     return data;
@@ -74,9 +83,9 @@ export function AuthProvider({ children }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
     });
-    const data = await res.json();
+    const data = await parseResponse(res);
     if (!res.ok) {
-      throw new Error(data.message || data.title || 'Email sau parolă incorectă.');
+      throw new Error(data.message || data.title || 'Invalid email or password.');
     }
     persistAuth(data.token, data.user);
     return data;

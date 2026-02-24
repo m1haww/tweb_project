@@ -21,7 +21,7 @@ function SignUpPage() {
       await signUp(email.trim(), password, name.trim() || undefined);
       navigate('/account', { replace: true });
     } catch (err) {
-      setError(err.message || 'Înregistrarea a eșuat.');
+      setError(err.message || 'Registration failed.');
     } finally {
       setSubmitting(false);
     }

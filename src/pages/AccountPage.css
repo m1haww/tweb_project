@@ -9,7 +9,7 @@
 
 .account-card {
   width: 100%;
-  max-width: 28rem;
+  max-width: 32rem;
   padding: 2rem;
   background: white;
   border-radius: 12px;
@@ -23,10 +23,135 @@
   color: #212529;
 }
 
+.account-name {
+  font-size: 0.9375rem;
+  color: #212529;
+  margin: 0 0 0.25rem;
+}
+
 .account-email {
   font-size: 0.9375rem;
   color: #6c757d;
   margin: 0 0 1.5rem;
+}
+
+.account-muted {
+  font-size: 0.9375rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.account-error {
+  font-size: 0.875rem;
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.account-success {
+  font-size: 0.875rem;
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+}
+
+.account-asc-connected {
+  font-size: 0.9375rem;
+  color: #155724;
+  margin: 0 0 0.75rem;
+}
+
+.account-asc-connected span {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.account-asc-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.account-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.account-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.account-btn-primary {
+  background: #0d6efd;
+  color: white;
+}
+
+.account-btn-primary:hover:not(:disabled) {
+  background: #0b5ed7;
+}
+
+.account-btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.account-btn-secondary:hover:not(:disabled) {
+  background: #5c636a;
+}
+
+.account-btn-danger {
+  background: #dc3545;
+  color: white;
+}
+
+.account-btn-danger:hover:not(:disabled) {
+  background: #bb2d3b;
+}
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.account-form label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #212529;
+}
+
+.account-form input,
+.account-textarea {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-family: inherit;
+}
+
+.account-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.account-form input:focus,
+.account-textarea:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
 }
 
 .account-section {
