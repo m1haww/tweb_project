@@ -6,14 +6,24 @@ import './LoginPage.css';
 function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError('');
     if (!email.trim()) return;
-    login(email.trim(), password);
-    navigate('/account', { replace: true });
+    setSubmitting(true);
+    try {
+      await login(email.trim(), password);
+      navigate('/account', { replace: true });
+    } catch (err) {
+      setError(err.message || 'Autentificare eșuată.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -21,6 +31,8 @@ function LoginPage() {
       <div className="login-card">
         <h1 className="login-title">Sign in</h1>
         <p className="login-subtitle">Access the ASO & Analytics dashboard.</p>
+
+        {error && <p className="login-error">{error}</p>}
 
         <form className="login-form" onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
@@ -42,8 +54,8 @@ function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="login-submit">
-            Sign in
+          <button type="submit" className="login-submit" disabled={submitting}>
+            {submitting ? 'Signing in…' : 'Sign in'}
           </button>
         </form>
 

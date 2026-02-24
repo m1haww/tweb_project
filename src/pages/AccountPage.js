@@ -9,6 +9,9 @@ function AccountPage() {
     <div className="account-page">
       <div className="account-card">
         <h1 className="account-title">You&apos;re in your account</h1>
+        {user?.name && (
+          <p className="account-name">Hello, <strong>{user.name}</strong></p>
+        )}
         {user?.email && (
           <p className="account-email">Signed in as <strong>{user.email}</strong></p>
         )}

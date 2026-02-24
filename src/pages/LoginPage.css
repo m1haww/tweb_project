@@ -29,6 +29,16 @@
   margin: 0 0 1.5rem;
 }
 
+.login-error {
+  padding: 0.5rem 0.75rem;
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+}
+
 .login-form {
   display: flex;
   flex-direction: column;

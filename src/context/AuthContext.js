@@ -1,42 +1,93 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
-const STORAGE_KEY = 'dashboard_user';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+const TOKEN_KEY = 'groz_token';
+const USER_KEY = 'groz_user';
 
 const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored) {
-      try {
-        setUser(JSON.parse(stored));
-      } catch {
-        localStorage.removeItem(STORAGE_KEY);
-      }
-    }
-  }, []);
-
-  const signUp = (email, password) => {
-    const newUser = { email };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(newUser));
-    setUser(newUser);
+  const persistAuth = (token, userData) => {
+    localStorage.setItem(TOKEN_KEY, token);
+    localStorage.setItem(USER_KEY, JSON.stringify(userData));
+    setUser(userData);
   };
 
-  const login = (email, password) => {
-    const loggedUser = { email };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(loggedUser));
-    setUser(loggedUser);
-  };
-
-  const logout = () => {
-    localStorage.removeItem(STORAGE_KEY);
+  const clearAuth = () => {
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.removeItem(USER_KEY);
     setUser(null);
   };
 
+  const fetchMe = useCallback(async () => {
+    const token = localStorage.getItem(TOKEN_KEY);
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+    try {
+      const res = await fetch(`${API_URL}/api/auth/me`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setUser({ id: data.id, email: data.email, name: data.name });
+      } else {
+        clearAuth();
+      }
+    } catch {
+      clearAuth();
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    const token = localStorage.getItem(TOKEN_KEY);
+    if (token) {
+      fetchMe();
+    } else {
+      setLoading(false);
+    }
+  }, [fetchMe]);
+
+  const signUp = async (email, password, name = '') => {
+    const res = await fetch(`${API_URL}/api/auth/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, name: name || null }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.message || data.title || 'Înregistrarea a eșuat.');
+    }
+    persistAuth(data.token, data.user);
+    return data;
+  };
+
+  const login = async (email, password) => {
+    const res = await fetch(`${API_URL}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    });
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.message || data.title || 'Email sau parolă incorectă.');
+    }
+    persistAuth(data.token, data.user);
+    return data;
+  };
+
+  const logout = () => {
+    clearAuth();
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, signUp, logout }}>
+    <AuthContext.Provider value={{ user, loading, login, signUp, logout }}>
       {children}
     </AuthContext.Provider>
   );
