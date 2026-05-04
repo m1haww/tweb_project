@@ -11,16 +11,15 @@ import { CyberButton } from "./cyber-button"
 
 const publicLinks = [
   { href: "/", label: "Home" },
-  { href: "/platform", label: "Platform" },
-  { href: "/data-sources", label: "Data Sources" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/aso-asa", label: "ASO / ASA" },
   { href: "/about", label: "About" },
 ]
 
 const protectedLinks = [
   { href: "/dashboard", label: "Dashboard" },
-  { href: "/analytics", label: "Analytics" },
-  { href: "/aso-asa", label: "ASO / ASA" },
+  { href: "/campaigns", label: "Campaigns" },
+  { href: "/reports", label: "Reports" },
+  { href: "/settings", label: "Settings" },
 ]
 
 export function Navbar() {
