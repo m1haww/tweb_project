@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { ArrowLeft, CheckCircle2, AlertCircle } from "lucide-react"
 import { ProtectedRoute } from "@/components/auth/protected-route"
 import { CyberButton } from "@/components/shared/cyber-button"
+import { ErrorAlert, SuccessAlert } from "@/components/shared/error-alert"
 import {
   appstoreConnectService,
   type AppStoreConnectStatus,
@@ -165,16 +166,8 @@ function Inner() {
             />
           </div>
 
-          {error && (
-            <div className="rounded-md border border-destructive/50 bg-destructive/10 px-3 py-2 text-xs text-destructive">
-              {error}
-            </div>
-          )}
-          {success && (
-            <div className="rounded-md border border-cyber-blue/50 bg-cyber-blue/10 px-3 py-2 text-xs text-cyber-blue">
-              {success}
-            </div>
-          )}
+          {error && <ErrorAlert message={error} onDismiss={() => setError(null)} />}
+          {success && <SuccessAlert message={success} />}
 
           <CyberButton
             type="submit"
