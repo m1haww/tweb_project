@@ -2,11 +2,18 @@
 
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from "react"
 import { useRouter } from "next/navigation"
+import { api } from "@/lib/api"
 
 interface User {
   id: string
   email: string
   name: string
+}
+
+interface AuthResponse {
+  token: string
+  expiresAt: string
+  user: User
 }
 
 interface AuthContextType {
@@ -20,28 +27,12 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-/* Mock users store (simulates backend) */
-const MOCK_USERS: Record<string, { id: string; email: string; name: string; password: string }> = {
-  "demo@pulsar.io": {
-    id: "usr_001",
-    email: "demo@pulsar.io",
-    name: "Demo User",
-    password: "password123",
-  },
-}
-
-function generateToken(user: User): string {
-  const payload = btoa(JSON.stringify({ sub: user.id, email: user.email, iat: Date.now() }))
-  return `mock_jwt.${payload}.signature`
-}
-
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
   useEffect(() => {
-    /* Check for existing session on mount */
     const token = localStorage.getItem("pulsar_token")
     const stored = localStorage.getItem("pulsar_user")
     if (token && stored) {
@@ -55,35 +46,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setLoading(false)
   }, [])
 
-  const login = useCallback(async (email: string, password: string) => {
-    /* Simulate network latency */
-    await new Promise((r) => setTimeout(r, 800))
-    const found = MOCK_USERS[email]
-    if (!found || found.password !== password) {
-      throw new Error("Invalid credentials. Try demo@pulsar.io / password123")
-    }
-    const userData: User = { id: found.id, email: found.email, name: found.name }
-    const token = generateToken(userData)
-    localStorage.setItem("pulsar_token", token)
-    localStorage.setItem("pulsar_user", JSON.stringify(userData))
-    setUser(userData)
-    router.push("/dashboard")
-  }, [router])
+  const login = useCallback(
+    async (email: string, password: string) => {
+      const data = await api.post<AuthResponse>("/api/auth/login", { email, password })
+      localStorage.setItem("pulsar_token", data.token)
+      localStorage.setItem("pulsar_user", JSON.stringify(data.user))
+      setUser(data.user)
+      router.push("/dashboard")
+    },
+    [router]
+  )
 
-  const register = useCallback(async (name: string, email: string, password: string) => {
-    await new Promise((r) => setTimeout(r, 800))
-    if (MOCK_USERS[email]) {
-      throw new Error("User already exists with that email")
-    }
-    const id = `usr_${Date.now()}`
-    MOCK_USERS[email] = { id, email, name, password }
-    const userData: User = { id, email, name }
-    const token = generateToken(userData)
-    localStorage.setItem("pulsar_token", token)
-    localStorage.setItem("pulsar_user", JSON.stringify(userData))
-    setUser(userData)
-    router.push("/dashboard")
-  }, [router])
+  const register = useCallback(
+    async (name: string, email: string, password: string) => {
+      const data = await api.post<AuthResponse>("/api/auth/register", { name, email, password })
+      localStorage.setItem("pulsar_token", data.token)
+      localStorage.setItem("pulsar_user", JSON.stringify(data.user))
+      setUser(data.user)
+      router.push("/dashboard")
+    },
+    [router]
+  )
 
   const logout = useCallback(() => {
     localStorage.removeItem("pulsar_token")
@@ -92,12 +75,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     router.push("/")
   }, [router])
 
-  const forgotPassword = useCallback(async (email: string) => {
-    await new Promise((r) => setTimeout(r, 800))
-    if (!MOCK_USERS[email]) {
-      throw new Error("No account found with that email")
-    }
-    /* In production, this would send a reset email */
+  const forgotPassword = useCallback(async (_email: string) => {
+    throw new Error("Forgot password endpoint nu este inca implementat in backend")
   }, [])
 
   return (
