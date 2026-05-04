@@ -7,24 +7,23 @@ const footerLinks = [
   {
     title: "Product",
     links: [
-      { label: "Platform", href: "/platform" },
-      { label: "Data Sources", href: "/data-sources" },
-      { label: "Pricing", href: "/pricing" },
+      { label: "ASO / ASA", href: "/aso-asa" },
+      { label: "Campaigns", href: "/campaigns" },
+      { label: "Reports", href: "/reports" },
     ],
   },
   {
-    title: "Solutions",
+    title: "Account",
     links: [
       { label: "Dashboard", href: "/dashboard" },
-      { label: "Analytics", href: "/analytics" },
-      { label: "ASO / ASA", href: "/aso-asa" },
+      { label: "Settings", href: "/settings" },
+      { label: "Account", href: "/account" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "About", href: "/about" },
-      { label: "Contact", href: "/about#contact" },
     ],
   },
 ]
