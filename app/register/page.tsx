@@ -5,6 +5,7 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { useAuth } from "@/components/auth/auth-provider"
 import { CyberButton } from "@/components/shared/cyber-button"
+import { ErrorAlert } from "@/components/shared/error-alert"
 
 export default function RegisterPage() {
   const { register } = useAuth()
@@ -94,11 +95,7 @@ export default function RegisterPage() {
             />
           </div>
 
-          {error && (
-            <div className="rounded-md border border-destructive/50 bg-destructive/10 px-3 py-2 text-xs text-destructive">
-              {error}
-            </div>
-          )}
+          {error && <ErrorAlert message={error} onDismiss={() => setError(null)} />}
 
           <CyberButton
             type="submit"
