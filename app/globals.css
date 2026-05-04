@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 96%;
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 207 56% 56%;
+    --primary-foreground: 222 47% 6%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 96%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 96%;
+    --destructive: 0 63% 50%;
+    --destructive-foreground: 210 40% 96%;
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 207 56% 56%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(81, 150, 206, 0.5);
+  }
+
+  .glow-pink {
+    box-shadow: 0 0 20px rgba(254, 132, 146, 0.5);
+  }
+
+  .border-glow-pink {
+    border-color: rgba(254, 132, 146, 0.8);
+    box-shadow: 0 0 12px rgba(254, 132, 146, 0.4);
+  }
+
+  .text-glow-blue {
+    text-shadow: 0 0 12px rgba(81, 150, 206, 0.6);
+  }
+
+  .text-glow-pink {
+    text-shadow: 0 0 12px rgba(254, 132, 146, 0.6);
+  }
+}
