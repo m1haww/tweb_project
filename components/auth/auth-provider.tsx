@@ -33,17 +33,25 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const router = useRouter()
 
   useEffect(() => {
-    const token = localStorage.getItem("pulsar_token")
-    const stored = localStorage.getItem("pulsar_user")
-    if (token && stored) {
+    async function verifySession() {
+      const token = localStorage.getItem("pulsar_token")
+      if (!token) {
+        setLoading(false)
+        return
+      }
+
       try {
-        setUser(JSON.parse(stored))
+        const me = await api.get<User>("/api/auth/me")
+        setUser(me)
+        localStorage.setItem("pulsar_user", JSON.stringify(me))
       } catch {
         localStorage.removeItem("pulsar_token")
         localStorage.removeItem("pulsar_user")
+      } finally {
+        setLoading(false)
       }
     }
-    setLoading(false)
+    verifySession()
   }, [])
 
   const login = useCallback(
