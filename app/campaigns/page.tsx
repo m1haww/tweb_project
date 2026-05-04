@@ -6,7 +6,9 @@ import { motion } from "framer-motion"
 import { Megaphone, ChevronRight } from "lucide-react"
 import { ProtectedRoute } from "@/components/auth/protected-route"
 import { EmptyState } from "@/components/shared/empty-state"
-import { CyberButton } from "@/components/shared/cyber-button"
+import { Spinner } from "@/components/shared/spinner"
+import { ErrorAlert } from "@/components/shared/error-alert"
+import { Badge } from "@/components/shared/badge"
 import { campaignsService, type CampaignDto } from "@/lib/services/campaigns"
 
 export default function CampaignsPage() {
@@ -54,15 +56,11 @@ function Inner() {
 
         {loading && (
           <div className="flex items-center justify-center py-20">
-            <div className="h-8 w-8 animate-spin rounded-full border-2 border-cyber-blue border-t-transparent" />
+            <Spinner size="lg" />
           </div>
         )}
 
-        {!loading && error && (
-          <div className="rounded-md border border-destructive/50 bg-destructive/10 px-4 py-3 text-sm text-destructive">
-            {error}
-          </div>
-        )}
+        {!loading && error && <ErrorAlert message={error} />}
 
         {!loading && !error && campaigns.length === 0 && (
           <EmptyState
@@ -92,11 +90,7 @@ function Inner() {
                       <h3 className="font-semibold text-foreground group-hover:text-cyber-blue">
                         {c.name}
                       </h3>
-                      {c.status && (
-                        <span className="rounded-full border border-cyber-blue/30 bg-cyber-blue/10 px-2 py-0.5 text-xs uppercase tracking-wider text-cyber-blue">
-                          {c.status}
-                        </span>
-                      )}
+                      {c.status && <Badge variant="blue">{c.status}</Badge>}
                     </div>
                     <p className="text-xs text-muted-foreground">
                       {c.adChannelType} · {c.billingEvent} · {c.countriesOrRegions.join(", ")}
