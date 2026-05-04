@@ -6,6 +6,9 @@ import { BarChart3 } from "lucide-react"
 import { ProtectedRoute } from "@/components/auth/protected-route"
 import { CyberButton } from "@/components/shared/cyber-button"
 import { ReportSummary } from "@/components/shared/report-summary"
+import { Spinner } from "@/components/shared/spinner"
+import { ErrorAlert } from "@/components/shared/error-alert"
+import { formatNumber, formatMoney } from "@/lib/format"
 import {
   reportsService,
   type CampaignReportResponse,
@@ -99,11 +102,7 @@ function Inner() {
           </CyberButton>
         </div>
 
-        {error && (
-          <div className="rounded-md border border-destructive/50 bg-destructive/10 px-4 py-3 text-sm text-destructive">
-            {error}
-          </div>
-        )}
+        {error && <ErrorAlert message={error} onDismiss={() => setError(null)} />}
 
         {!report && !loading && !error && (
           <div className="flex flex-col items-center justify-center rounded-lg border border-border bg-card/40 p-16 text-center backdrop-blur-sm">
@@ -154,18 +153,16 @@ function Inner() {
                         {r.metadata?.campaignName || `#${r.metadata?.campaignId}`}
                       </td>
                       <td className="px-4 py-3 font-mono text-muted-foreground">
-                        {r.total?.impressions?.toLocaleString() || "—"}
+                        {formatNumber(r.total?.impressions)}
                       </td>
                       <td className="px-4 py-3 font-mono text-muted-foreground">
-                        {r.total?.taps?.toLocaleString() || "—"}
+                        {formatNumber(r.total?.taps)}
                       </td>
                       <td className="px-4 py-3 font-mono text-muted-foreground">
-                        {r.total?.localSpend
-                          ? `${r.total.localSpend.amount} ${r.total.localSpend.currency || ""}`
-                          : "—"}
+                        {formatMoney(r.total?.localSpend)}
                       </td>
                       <td className="px-4 py-3 font-mono text-muted-foreground">
-                        {r.total?.totalInstalls?.toLocaleString() || "—"}
+                        {formatNumber(r.total?.totalInstalls)}
                       </td>
                     </tr>
                   ))}
