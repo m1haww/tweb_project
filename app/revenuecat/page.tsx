@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { Webhook, CheckCircle2 } from "lucide-react"
 import { ProtectedRoute } from "@/components/auth/protected-route"
 import { CyberButton } from "@/components/shared/cyber-button"
+import { ErrorAlert } from "@/components/shared/error-alert"
 import { revenuecatService } from "@/lib/services/revenuecat"
 
 export default function RevenueCatPage() {
@@ -155,11 +156,7 @@ function Inner() {
             {loading ? "Sending..." : "Send Test Event"}
           </CyberButton>
 
-          {error && (
-            <div className="rounded-md border border-destructive/50 bg-destructive/10 px-3 py-2 text-xs text-destructive">
-              {error}
-            </div>
-          )}
+          {error && <ErrorAlert message={error} onDismiss={() => setError(null)} />}
 
           {!!response && (
             <div className="space-y-2">
