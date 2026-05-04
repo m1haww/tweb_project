@@ -11,7 +11,9 @@ import { CyberButton } from "./cyber-button"
 
 const publicLinks = [
   { href: "/", label: "Home" },
-  { href: "/aso-asa", label: "ASO / ASA" },
+  { href: "/platform", label: "Platform" },
+  { href: "/data-sources", label: "Data Sources" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
 ]
 
