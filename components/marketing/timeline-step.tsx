@@ -21,7 +21,7 @@ export function TimelineStep({ step, index, hideConnector }: TimelineStepProps) 
       initial={{ opacity: 0, x: -20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.12 }}
       className="relative flex gap-6"
     >
       <div className="relative flex flex-col items-center">
