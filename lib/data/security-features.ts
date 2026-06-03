@@ -49,3 +49,9 @@ export const SECURITY_FEATURES: SecurityFeature[] = [
     description: "Snapshot la fiecare 6 ore, retentie 30 de zile, restore in mai putin de 10 minute.",
     icon: "Database",
   },
+  {
+    id: "ddos",
+    title: "DDoS protection",
+    description: "Edge layer cu Cloudflare. Trafic anormal blocat automat la marginea retelei.",
+    icon: "Zap",
+  },
