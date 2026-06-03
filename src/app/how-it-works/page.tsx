@@ -35,6 +35,14 @@ export default function HowItWorksPage() {
             />
           ))}
         </ol>
+
+        <div className="rounded-lg border border-border bg-card/40 p-8 text-center backdrop-blur-sm">
+          <p className="text-sm italic text-foreground">
+            “Am pornit cu Pulsar luni dimineata, marti seara aveam deja prima regula
+            automata activa. Genial.”
+          </p>
+          <p className="mt-3 text-xs text-muted-foreground">— Mara Ionescu, Head of Growth la NorthLabs</p>
+        </div>
       </motion.div>
     </div>
   )
