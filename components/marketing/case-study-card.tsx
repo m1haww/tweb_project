@@ -34,9 +34,9 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
 
       <p className="mt-4 max-w-prose text-sm text-muted-foreground">{caseStudy.summary}</p>
 
-      <div className="mt-6 grid grid-cols-3 gap-4 border-y border-border py-4">
+      <div className="mt-6 flex flex-wrap justify-around gap-4 border-y border-border py-4">
         {caseStudy.metrics.map((metric) => (
-          <div key={metric.label} className="text-center">
+          <div key={metric.label} className="min-w-[80px] text-center">
             <div className="text-xl font-semibold text-cyber-blue">{metric.value}</div>
             <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">
               {metric.label}
