@@ -33,6 +33,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "Installs", value: "+185%" },
       { label: "CPI", value: "-41%" },
       { label: "LTV/CAC", value: "3.2" },
+      { label: "Day-7 retention", value: "+18%" },
     ],
     quote: "Engine-ul de automation ne-a taiat CPI in prima luna. Nu mai vrem sa ne intoarcem la bidding manual.",
     author: "Andrei Petrescu, CTO",
@@ -51,7 +52,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "Cel mai bun tool de Apple Ads pe care l-am folosit in 8 ani de studio.",
     author: "Henrik Larsen, Founder",
   },
-]
   {
     id: "klear",
     company: "Klear",
@@ -66,3 +66,4 @@ export const CASE_STUDIES: CaseStudy[] = [
     quote: "Regulile custom ne-au permis sa scalam in 8 tari fara sa schimbam echipa.",
     author: "Sofia Bianchi, Performance Lead",
   },
+]
