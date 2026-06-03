@@ -48,6 +48,13 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
         “{caseStudy.quote}”
       </blockquote>
       <p className="mt-2 text-xs text-muted-foreground">— {caseStudy.author}</p>
+
+      <a
+        href={`#${caseStudy.id}`}
+        className="mt-4 inline-flex items-center text-xs font-medium text-cyber-blue hover:underline"
+      >
+        Citeste case study complet →
+      </a>
     </motion.article>
   )
 }
