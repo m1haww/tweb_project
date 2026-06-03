@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import {
   Bug,
+  Database,
   FileText,
   Globe,
   Key,
@@ -19,6 +20,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   FileText,
   Globe,
   Bug,
+  Database,
 }
 
 interface SecurityFeatureCardProps {
