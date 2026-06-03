@@ -11,10 +11,10 @@ interface Step {
 interface TimelineStepProps {
   step: Step
   index: number
-  isLast?: boolean
+  hideConnector?: boolean
 }
 
-export function TimelineStep({ step, index, isLast }: TimelineStepProps) {
+export function TimelineStep({ step, index, hideConnector }: TimelineStepProps) {
   return (
     <motion.li
       id={`step-${step.id}`}
@@ -28,7 +28,7 @@ export function TimelineStep({ step, index, isLast }: TimelineStepProps) {
         <div className="flex h-12 w-12 items-center justify-center rounded-full border border-cyber-blue/40 bg-cyber-blue/10 text-cyber-blue">
           <span className="text-lg font-semibold">{step.id}</span>
         </div>
-        {!isLast && (
+        {!hideConnector && (
           <span
             aria-hidden="true"
             className="absolute top-12 h-full w-px bg-gradient-to-b from-cyber-blue/60 to-cyber-blue/0"
