@@ -35,7 +35,7 @@ export default function TeamPage() {
           <h2 className="text-2xl font-semibold text-foreground">Vrei sa lucrezi cu noi?</h2>
           <p className="mt-3 text-sm text-muted-foreground">
             Cautam ingineri, designeri si oameni de customer success. Scrie-ne la{" "}
-            <span className="text-cyber-blue">jobs@pulsar.app</span>.
+            <span className="text-cyber-blue underline-offset-4 hover:underline">jobs@pulsar.app</span>.
           </p>
         </div>
       </motion.div>
