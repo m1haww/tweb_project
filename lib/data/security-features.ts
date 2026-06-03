@@ -55,3 +55,9 @@ export const SECURITY_FEATURES: SecurityFeature[] = [
     description: "Edge layer cu Cloudflare. Trafic anormal blocat automat la marginea retelei.",
     icon: "Zap",
   },
+  {
+    id: "mfa",
+    title: "MFA obligatoriu",
+    description: "Acces in cont doar cu TOTP sau hardware key (FIDO2). Optional pentru toti userii.",
+    icon: "Lock",
+  },
