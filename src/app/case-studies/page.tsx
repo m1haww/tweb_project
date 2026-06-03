@@ -45,6 +45,15 @@ export default function CaseStudiesPage() {
             <CaseStudyCard key={caseStudy.id} caseStudy={caseStudy} index={index} />
           ))}
         </div>
+
+        <div className="text-center">
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-lg border border-cyber-blue/40 bg-cyber-blue/10 px-6 py-3 text-sm font-medium text-cyber-blue transition-colors hover:bg-cyber-blue/20"
+          >
+            Vrei sa fii urmatorul case study? Hai sa vorbim →
+          </a>
+        </div>
       </motion.div>
     </div>
   )
