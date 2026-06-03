@@ -31,7 +31,7 @@ export default function HowItWorksPage() {
               key={step.id}
               step={step}
               index={index}
-              isLast={index === HOW_IT_WORKS_STEPS.length - 1}
+              hideConnector={index === HOW_IT_WORKS_STEPS.length - 1}
             />
           ))}
         </ol>
