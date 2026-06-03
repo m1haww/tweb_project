@@ -57,3 +57,10 @@ export const TEAM_MEMBERS: TeamMember[] = [
     bio: "Backend specialist pe data pipelines. Pasiune pentru clean SQL.",
     initials: "IS",
   },
+  {
+    id: "alex",
+    name: "Alex Cernat",
+    role: "Designer",
+    bio: "Construieste interfete delicioase si rade la propriile glume.",
+    initials: "AC",
+  },
