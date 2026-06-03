@@ -50,3 +50,10 @@ export const TEAM_MEMBERS: TeamMember[] = [
     initials: "RM",
   },
 ]
+  {
+    id: "ioana",
+    name: "Ioana Stanciu",
+    role: "Senior Engineer",
+    bio: "Backend specialist pe data pipelines. Pasiune pentru clean SQL.",
+    initials: "IS",
+  },
