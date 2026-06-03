@@ -32,7 +32,7 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
         </div>
       </div>
 
-      <p className="mt-4 text-sm text-muted-foreground">{caseStudy.summary}</p>
+      <p className="mt-4 max-w-prose text-sm text-muted-foreground">{caseStudy.summary}</p>
 
       <div className="mt-6 grid grid-cols-3 gap-4 border-y border-border py-4">
         {caseStudy.metrics.map((metric) => (
