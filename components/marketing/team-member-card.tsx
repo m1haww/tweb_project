@@ -15,7 +15,7 @@ export function TeamMemberCard({ member, index }: TeamMemberCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="rounded-lg border border-border bg-card/60 p-6 text-center backdrop-blur-sm transition-colors hover:border-cyber-blue/40"
+      className="rounded-lg border border-border bg-card/60 p-6 text-center backdrop-blur-sm transition-colors hover:border-cyber-blue/60 hover:bg-card/80"
     >
       <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-cyber-blue/40 bg-cyber-blue/10 text-lg font-semibold text-cyber-blue">
         {member.initials}
