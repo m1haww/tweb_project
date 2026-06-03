@@ -16,7 +16,7 @@ export default function SecurityPage() {
       >
         <div className="space-y-4 text-center">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-cyber-blue/40 bg-cyber-blue/10 text-cyber-blue">
-            <ShieldCheck className="h-6 w-6" />
+            <ShieldCheck className="h-7 w-7" />
           </div>
           <h1
             className="text-5xl font-bold tracking-tight text-foreground"
