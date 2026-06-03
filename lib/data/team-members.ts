@@ -36,7 +36,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
     id: "tudor",
     name: "Tudor Iancu",
     role: "Head of Engineering",
-    bio: "Ii plac commit-urile mici si dese. Alergic la YAML.",
+    bio: "Ii plac commit-urile mici si dese. Built Pulsar v1 in 6 saptamani.",
     initials: "TI",
     location: "Brasov",
   },
