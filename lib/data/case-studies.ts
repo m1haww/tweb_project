@@ -52,3 +52,17 @@ export const CASE_STUDIES: CaseStudy[] = [
     author: "Henrik Larsen, Founder",
   },
 ]
+  {
+    id: "klear",
+    company: "Klear",
+    industry: "Fitness apps",
+    summary:
+      "App de fitness cu 2M+ MAU. Pulsar a redus CPI cu 31% si a crescut LTV/CAC la 4.1.",
+    metrics: [
+      { label: "MAU", value: "+22%" },
+      { label: "CPI", value: "-31%" },
+      { label: "LTV/CAC", value: "4.1" },
+    ],
+    quote: "Regulile custom ne-au permis sa scalam in 8 tari fara sa schimbam echipa.",
+    author: "Sofia Bianchi, Performance Lead",
+  },
