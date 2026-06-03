@@ -21,7 +21,7 @@ export default function HowItWorksPage() {
             How it works
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            De la sign-up la prima campanie optimizata in mai putin de o ora.
+            Sign-up, prima campanie optimizata si primele insights — toate in sub o ora.
           </p>
         </div>
 
