@@ -36,6 +36,16 @@ export default function SecurityPage() {
         </div>
 
         <div className="rounded-lg border border-border bg-card/40 p-8 backdrop-blur-sm">
+          <h2 className="text-2xl font-semibold text-foreground">Compliance</h2>
+          <ul className="mt-4 grid gap-2 text-sm text-muted-foreground sm:grid-cols-2">
+            <li className="flex items-center gap-2"><span className="text-cyber-blue">●</span> SOC 2 Type II</li>
+            <li className="flex items-center gap-2"><span className="text-cyber-blue">●</span> GDPR & CCPA</li>
+            <li className="flex items-center gap-2"><span className="text-cyber-blue">●</span> ISO 27001 (in proces)</li>
+            <li className="flex items-center gap-2"><span className="text-cyber-blue">●</span> HIPAA ready</li>
+          </ul>
+        </div>
+
+        <div className="rounded-lg border border-border bg-card/40 p-8 backdrop-blur-sm">
           <h2 className="text-2xl font-semibold text-foreground">Raporteaza o vulnerabilitate</h2>
           <p className="mt-3 text-sm text-muted-foreground">
             Daca ai descoperit o problema de securitate, te rugam sa ne trimiti un email la{" "}
