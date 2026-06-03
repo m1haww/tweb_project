@@ -31,3 +31,8 @@ export const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
     description: "Digest-uri saptamanale, pauza cu un click, transparenta totala asupra deciziilor.",
   },
 ]
+  {
+    id: 6,
+    title: "Scaleaza cu incredere",
+    description: "Adauga conturi noi, reguli noi, useri noi — fara reconfigurari.",
+  },
