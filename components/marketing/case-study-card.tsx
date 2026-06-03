@@ -25,7 +25,8 @@ export function CaseStudyCard({ caseStudy, index }: CaseStudyCardProps) {
           >
             {caseStudy.company}
           </h3>
-          <p className="mt-1 text-xs uppercase tracking-wider text-cyber-blue">
+          <p className="mt-1 inline-flex items-center gap-1 text-xs uppercase tracking-wider text-cyber-blue">
+            <span aria-hidden="true">▸</span>
             {caseStudy.industry}
           </p>
         </div>
