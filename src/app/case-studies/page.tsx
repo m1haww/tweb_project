@@ -25,6 +25,21 @@ export default function CaseStudiesPage() {
           </p>
         </div>
 
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div className="rounded-lg border border-border bg-card/40 p-6 text-center backdrop-blur-sm">
+            <div className="text-3xl font-semibold text-cyber-blue">$10M+</div>
+            <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Ad spend optimizat</div>
+          </div>
+          <div className="rounded-lg border border-border bg-card/40 p-6 text-center backdrop-blur-sm">
+            <div className="text-3xl font-semibold text-cyber-blue">500+</div>
+            <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Apps active</div>
+          </div>
+          <div className="rounded-lg border border-border bg-card/40 p-6 text-center backdrop-blur-sm">
+            <div className="text-3xl font-semibold text-cyber-blue">99.9%</div>
+            <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Uptime</div>
+          </div>
+        </div>
+
         <div className="grid gap-6 md:grid-cols-1 lg:grid-cols-2">
           {CASE_STUDIES.map((caseStudy, index) => (
             <CaseStudyCard key={caseStudy.id} caseStudy={caseStudy} index={index} />
