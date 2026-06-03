@@ -18,7 +18,7 @@ export default function TeamPage() {
             className="text-5xl font-bold tracking-tight text-foreground"
             style={{ fontFamily: "var(--font-orbitron)" }}
           >
-            Echipa Pulsar
+            Oamenii din spatele Pulsar
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Un grup mic de ingineri, designeri si marketeri care construiesc tool-uri pe care si-ar dori sa le foloseasca.
