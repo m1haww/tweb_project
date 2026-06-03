@@ -30,6 +30,14 @@ export default function TeamPage() {
             <TeamMemberCard key={member.id} member={member} index={index} />
           ))}
         </div>
+
+        <div className="rounded-lg border border-border bg-card/40 p-8 backdrop-blur-sm">
+          <h2 className="text-2xl font-semibold text-foreground">Vrei sa lucrezi cu noi?</h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Cautam ingineri, designeri si oameni de customer success. Scrie-ne la{" "}
+            <span className="text-cyber-blue">jobs@pulsar.app</span>.
+          </p>
+        </div>
       </motion.div>
     </div>
   )
