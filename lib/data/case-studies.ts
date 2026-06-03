@@ -34,6 +34,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       { label: "CPI", value: "-41%" },
       { label: "LTV/CAC", value: "3.2" },
       { label: "Day-7 retention", value: "+18%" },
+      { label: "Time saved", value: "18h/sapt." },
     ],
     quote: "Engine-ul de automation ne-a taiat CPI in prima luna. Nu mai vrem sa ne intoarcem la bidding manual.",
     author: "Andrei Petrescu, CTO",
