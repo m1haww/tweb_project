@@ -46,6 +46,7 @@ export default function SecurityPage() {
         </div>
 
         <div className="rounded-lg border border-border bg-card/40 p-8 backdrop-blur-sm">
+          <p className="mt-1 text-xs uppercase tracking-wider text-cyber-blue">Bug bounty activ</p>
           <h2 className="text-2xl font-semibold text-foreground">Raporteaza o vulnerabilitate</h2>
           <p className="mt-3 text-sm text-muted-foreground">
             Daca ai descoperit o problema de securitate, te rugam sa ne trimiti un email la{" "}
