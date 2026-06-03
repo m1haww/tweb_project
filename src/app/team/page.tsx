@@ -38,6 +38,14 @@ export default function TeamPage() {
             <span className="text-cyber-blue underline-offset-4 hover:underline">jobs@pulsar.app</span>.
           </p>
         </div>
+
+        <div className="rounded-lg border border-border bg-card/40 p-8 backdrop-blur-sm">
+          <h2 className="text-2xl font-semibold text-foreground">Press kit</h2>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Logo, screenshots si fact sheet — disponibile la{" "}
+            <span className="text-cyber-blue">press@pulsar.app</span>.
+          </p>
+        </div>
       </motion.div>
     </div>
   )
