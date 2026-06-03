@@ -25,7 +25,7 @@ export default function SecurityPage() {
             Security
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Construit cu securitate enterprise de la bun inceput. Auditat, certificat si monitorizat 24/7.
+            Construit cu securitate enterprise. Auditat, certificat, monitorizat 24/7 — totul transparent.
           </p>
         </div>
 
