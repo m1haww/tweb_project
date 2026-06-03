@@ -31,7 +31,7 @@ export function TimelineStep({ step, index, hideConnector }: TimelineStepProps) 
         {!hideConnector && (
           <span
             aria-hidden="true"
-            className="absolute top-12 h-full w-px bg-gradient-to-b from-cyber-blue/60 to-cyber-blue/0"
+            className="absolute top-12 h-full w-px bg-gradient-to-b from-cyber-blue/70 via-cyber-blue/30 to-cyber-blue/0"
           />
         )}
       </div>
