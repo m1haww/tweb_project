@@ -43,3 +43,9 @@ export const SECURITY_FEATURES: SecurityFeature[] = [
     icon: "Bug",
   },
 ]
+  {
+    id: "backups",
+    title: "Backup-uri automate",
+    description: "Snapshot la fiecare 6 ore, retentie 30 de zile, restore in mai putin de 10 minute.",
+    icon: "Database",
+  },
