@@ -9,6 +9,7 @@ import {
   Key,
   Lock,
   ShieldCheck,
+  Zap,
   type LucideIcon,
 } from "lucide-react"
 import type { SecurityFeature } from "@/lib/data/security-features"
@@ -21,6 +22,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   Globe,
   Bug,
   Database,
+  Zap,
 }
 
 interface SecurityFeatureCardProps {
