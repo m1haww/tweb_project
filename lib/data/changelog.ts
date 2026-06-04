@@ -10,6 +10,14 @@ export interface ChangelogEntry {
 }
 
 export const CHANGELOG: ChangelogEntry[] = [
+    {
+    id: "v2-5",
+    version: "v2.5",
+    date: "2026-05-30",
+    title: "Pulsar Mobile (beta)",
+    description: "Aplicatie iOS native pentru push alerts si quick approvals. Beta deschis pentru toti userii Pro.",
+    tags: ["Feature"],
+  },
   {
     id: "v2-4",
     version: "v2.4",
