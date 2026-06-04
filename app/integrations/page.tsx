@@ -1,10 +1,23 @@
 "use client"
 
+import { useMemo, useState } from "react"
 import { motion } from "framer-motion"
 import { IntegrationCard } from "@/components/marketing/integration-card"
 import { INTEGRATIONS } from "@/lib/data/integrations"
 
 export default function IntegrationsPage() {
+  const [active, setActive] = useState("Toate")
+
+  const categories = useMemo(() => {
+    const set = new Set(INTEGRATIONS.map((i) => i.category))
+    return ["Toate", ...Array.from(set).sort()]
+  }, [])
+
+  const filtered = useMemo(
+    () => active === "Toate" ? INTEGRATIONS : INTEGRATIONS.filter((i) => i.category === active),
+    [active]
+  )
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
       <motion.div
@@ -25,8 +38,24 @@ export default function IntegrationsPage() {
           </p>
         </div>
 
+        <div className="flex flex-wrap gap-2">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActive(cat)}
+              className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+                active === cat
+                  ? "border-cyber-blue bg-cyber-blue/10 text-cyber-blue"
+                  : "border-border text-muted-foreground hover:border-cyber-blue/40"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {INTEGRATIONS.map((integration, index) => (
+          {filtered.map((integration, index) => (
             <IntegrationCard key={integration.id} integration={integration} index={index} />
           ))}
         </div>
