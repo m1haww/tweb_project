@@ -21,7 +21,7 @@ export default function CustomersPage() {
             Customers
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Echipe care construiesc viitorul pe iOS. Mici si mari, indie si enterprise — folosesc Pulsar zilnic.
+           Mici si mari, indie si enterprise — toti folosesc Pulsar pentru a-si scala apps-urile pe iOS.
           </p>
         </div>
 
