@@ -21,7 +21,7 @@ export default function FAQPage() {
             FAQ
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Cele mai frecvente intrebari. Nu gasesti ce cauti? Scrie-ne la{" "}
+            Intrebari pe care le primim cel mai des. Nu gasesti ce cauti? Scrie-ne la{" "}
             <span className="text-cyber-blue">help@pulsar.app</span>.
           </p>
         </div>
