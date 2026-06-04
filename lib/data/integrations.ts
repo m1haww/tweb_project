@@ -93,4 +93,11 @@ export const INTEGRATIONS: Integration[] = [
     description: "Connector live pentru dashboard-uri Looker Studio.",
     status: "soon",
   },
+  {
+    id: "segment",
+    name: "Segment",
+    category: "Analytics",
+    description: "Forwardeaza evenimente catre orice destination din Segment.",
+    status: "beta",
+  },
 ]
