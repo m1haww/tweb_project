@@ -22,6 +22,7 @@ export const CUSTOMER_LOGOS: CustomerLogo[] = [
   { id: "orbit", name: "Orbit Studio", category: "Gaming" },
   { id: "voltaic", name: "Voltaic", category: "Music" },
   { id: "lighthouse", name: "Lighthouse", category: "Education" },
+{ id: "nexus", name: "Nexus Labs", category: "Developer Tools" },
 ]
 
 export const CUSTOMER_TESTIMONIALS = [
