@@ -68,7 +68,13 @@ export default function CustomersPage() {
             ))}
           </div>
         </section>
-      </motion.div>
+      <div className="rounded-lg border border-border bg-card/40 p-8 text-center backdrop-blur-sm">
+          <h2 className="text-xl font-semibold text-foreground">Incepe gratuit azi</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            14 zile trial, fara card. Anulezi oricand.
+          </p>
+        </div>
+        </motion.div>
     </div>
   )
 }
