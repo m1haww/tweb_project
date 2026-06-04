@@ -38,6 +38,9 @@ export default function FAQPage() {
           <p className="mt-2 text-sm text-muted-foreground">
             Echipa noastra raspunde in mai putin de o ora in zilele lucratoare.
           </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Vezi si <a href="/pricing" className="text-cyber-blue hover:underline">planurile noastre</a>.
+          
         </div>
   )
 }
