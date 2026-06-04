@@ -86,6 +86,12 @@ export default function IntegrationsPage() {
             <span className="text-cyber-blue">integrations@pulsar.app</span> si o adaugam in roadmap.
           </p>
         </div>
+        <div className="rounded-lg border border-border bg-card/40 p-6 text-center backdrop-blur-sm">
+          <p className="text-sm text-muted-foreground">
+            Ai intrebari despre integrari? Vezi{" "}
+            <a href="/faq" className="text-cyber-blue hover:underline">FAQ-ul</a>.
+          </p>
+        </div>
       </motion.div>
     </div>
   )
