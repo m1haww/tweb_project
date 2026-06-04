@@ -64,4 +64,9 @@ export const FAQS: FAQ[] = [
     question: "Ce planuri aveti disponibile?",
     answer: "Avem trei planuri: Starter (gratuit), Pro ($49/luna) si Enterprise (custom). Toate includ acces la dashboard si integrari de baza.",
   },
+  {
+    id: "security",
+    question: "Cat de sigure sunt datele mele?",
+    answer: "Datele sunt criptate in tranzit (TLS 1.3) si la stocare (AES-256). Suntem SOC 2 Type II certificati si GDPR compliant.",
+  },
 ]
