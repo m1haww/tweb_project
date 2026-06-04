@@ -10,7 +10,9 @@ export default function IntegrationsPage() {
 
   const categories = useMemo(() => {
     const set = new Set(INTEGRATIONS.map((i) => i.category))
-    return ["Toate", ...Array.from(set).sort()]
+    const preferredOrder = ["MMP", "Apple", "Analytics", "BI", "Comunicare", "Export"]
+    const sorted = preferredOrder.filter((cat) => set.has(cat))
+    return ["Toate", ...sorted]
   }, [])
 
   const filtered = useMemo(
