@@ -100,4 +100,12 @@ export const INTEGRATIONS: Integration[] = [
     description: "Forwardeaza evenimente catre orice destination din Segment.",
     status: "beta",
   },
+  {
+    id: "notion",
+    name: "Notion",
+    category: "Comunicare",
+    description: "Embed-eaza reports Pulsar direct in Notion pages.",
+    status: "soon",
+  },
+  
 ]
