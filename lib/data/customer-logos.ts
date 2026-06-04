@@ -7,6 +7,7 @@ export interface CustomerLogo {
 }
 
 export const CUSTOMER_LOGOS: CustomerLogo[] = [
+    { id: "atlas", name: "Atlas Audio", category: "Audio" },
   { id: "northlabs", name: "NorthLabs", category: "Productivity" },
   { id: "bluepixel", name: "BluePixel", category: "Gaming" },
   { id: "norrsoft", name: "NorrSoft", category: "Utility" },
