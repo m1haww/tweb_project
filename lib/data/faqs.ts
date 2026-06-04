@@ -49,6 +49,10 @@ export const FAQS: FAQ[] = [
     id: "referral",
     question: "Aveti referral program?",
     answer: "Da — invita un prieten si primiti amandoi o luna gratuita.",
+  },{
+    id: "export",
+    question: "Pot exporta datele mele?",
+    answer: "Da — export complet in CSV, XLSX si JSON din orice dashboard. API public pentru export programatic.",
   },
   
 ]
