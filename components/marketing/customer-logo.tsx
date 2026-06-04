@@ -15,7 +15,7 @@ export function CustomerLogoCard({ logo, index }: CustomerLogoProps) {
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3, delay: index * 0.04 }}
-      className="flex flex-col items-center justify-center rounded-lg border border-border bg-card/40 p-6 text-center backdrop-blur-sm transition-colors hover:border-cyber-blue/40"
+      className="flex flex-col items-center justify-center rounded-lg border border-border bg-card/40 p-6 text-center backdrop-blur-sm transition-colors hover:border-cyber-blue/40 hover:bg-card/60"
     >
       <div
         className="text-xl font-semibold text-foreground"
