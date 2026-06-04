@@ -49,7 +49,7 @@ export default function IntegrationsPage() {
                   : "border-border text-muted-foreground hover:border-cyber-blue/40"
               }`}
             >
-              {cat}
+              {cat}{active === cat && filtered.length > 0 && ` (${filtered.length})`}
             </button>
           ))}
         </div>
