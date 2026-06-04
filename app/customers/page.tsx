@@ -1,10 +1,11 @@
 "use client"
 
+import React from "react"
 import { motion } from "framer-motion"
 import { CustomerLogoCard } from "@/components/marketing/customer-logo"
 import { CUSTOMER_LOGOS, CUSTOMER_TESTIMONIALS } from "@/lib/data/customer-logos"
 
-export default function CustomersPage() {
+export default function CustomersPage(): JSX.Element {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
       <motion.div
@@ -38,7 +39,7 @@ export default function CustomersPage() {
 
         <section>
           <h2 className="mb-6 text-center text-2xl font-semibold text-foreground">
-            Ce spun ei
+            Ce spun clientii nostri
           </h2>
           <div className="grid gap-4 md:grid-cols-3">
             {CUSTOMER_TESTIMONIALS.map((testimonial, index) => (
