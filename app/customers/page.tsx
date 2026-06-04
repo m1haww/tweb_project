@@ -70,8 +70,9 @@ export default function CustomersPage() {
         </section>
       <div className="rounded-lg border border-border bg-card/40 p-8 text-center backdrop-blur-sm">
           <h2 className="text-xl font-semibold text-foreground">Incepe gratuit azi</h2>
-          <p className="mt-2 text-sm text-muted-foreground">
-            14 zile trial, fara card. Anulezi oricand.
+         <p className="mt-3 text-sm text-muted-foreground">
+            Inceput gratuit in 14 zile, fara card. Sau citeste{" "}
+            <a href="/case-studies" className="text-cyber-blue hover:underline">case studies</a>.
           </p>
         </div>
         </motion.div>
