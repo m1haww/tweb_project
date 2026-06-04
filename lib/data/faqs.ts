@@ -59,4 +59,9 @@ export const FAQS: FAQ[] = [
     question: "Suportati si Android?",
     answer: "In acest moment Pulsar e dedicat exclusiv ecosistemului Apple (iOS, iPadOS, tvOS). Suport Android pe roadmap pentru 2027.",
   },
+  {
+    id: "pricing",
+    question: "Ce planuri aveti disponibile?",
+    answer: "Avem trei planuri: Starter (gratuit), Pro ($49/luna) si Enterprise (custom). Toate includ acces la dashboard si integrari de baza.",
+  },
 ]
