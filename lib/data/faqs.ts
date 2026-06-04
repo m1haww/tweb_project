@@ -54,5 +54,9 @@ export const FAQS: FAQ[] = [
     question: "Pot exporta datele mele?",
     answer: "Da — export complet in CSV, XLSX si JSON din orice dashboard. API public pentru export programatic.",
   },
-  
+  {
+    id: "android",
+    question: "Suportati si Android?",
+    answer: "In acest moment Pulsar e dedicat exclusiv ecosistemului Apple (iOS, iPadOS, tvOS). Suport Android pe roadmap pentru 2027.",
+  },
 ]
