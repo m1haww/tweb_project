@@ -37,7 +37,20 @@ export default function IntegrationsPage() {
             Pulsar se conecteaza cu MMP-ul tau, App Store Connect si tool-urile de analytics pe care le folosesti deja.
           </p>
         </div>
-
+<div className="grid gap-4 sm:grid-cols-3">
+          <div className="rounded-lg border border-border bg-card/40 p-5 text-center backdrop-blur-sm">
+            <div className="text-2xl font-semibold text-cyber-blue">35+</div>
+            <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Integrari live</div>
+          </div>
+          <div className="rounded-lg border border-border bg-card/40 p-5 text-center backdrop-blur-sm">
+            <div className="text-2xl font-semibold text-cyber-blue">3</div>
+            <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Adaugate lunar</div>
+          </div>
+          <div className="rounded-lg border border-border bg-card/40 p-5 text-center backdrop-blur-sm">
+            <div className="text-2xl font-semibold text-cyber-blue">Two-way</div>
+            <div className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">Sincronizare</div>
+          </div>
+        </div>
         <div className="flex flex-wrap gap-2">
           {categories.map((cat) => (
             <motion.button
@@ -51,7 +64,7 @@ export default function IntegrationsPage() {
               }`}
             >
               {cat}{active === cat && filtered.length > 0 && ` (${filtered.length})`}
-            </button>
+            </motion.button>
           ))}
         </div>
 
