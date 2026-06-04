@@ -11,6 +11,14 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    id: "v2-7",
+    version: "v2.7",
+    date: "2026-06-04",
+    title: "Platform & Data Sources pages",
+    description: "Pagini noi dedicate platformei si surselor de date. Documentatie completa pentru developeri.",
+    tags: ["Feature", "Improvement"],
+  },
+  {
     id: "v2-6",
     version: "v2.6",
     date: "2026-06-02",
