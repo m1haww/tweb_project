@@ -50,7 +50,7 @@ export default function CustomersPage() {
                 transition={{ duration: 0.35, delay: index * 0.08 }}
                 className="flex h-full flex-col gap-4 rounded-lg border border-border bg-card/60 p-6 backdrop-blur-sm"
               >
-                <blockquote className="text-sm italic text-foreground">
+                <blockquote className="text-sm italic leading-relaxed text-foreground">
                   "{testimonial.quote}"
                 </blockquote>
                 <figcaption className="mt-auto flex items-center gap-3 border-t border-border pt-4">
