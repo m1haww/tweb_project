@@ -29,7 +29,7 @@ export default function CustomersPage() {
           <h2 className="mb-6 text-center text-xs uppercase tracking-wider text-muted-foreground">
             Folosit de echipe din intreaga lume:
           </h2>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
             {CUSTOMER_LOGOS.map((logo, index) => (
               <CustomerLogoCard key={logo.id} logo={logo} index={index} />
             ))}
