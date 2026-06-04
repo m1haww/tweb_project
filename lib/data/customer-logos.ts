@@ -50,4 +50,12 @@ export const CUSTOMER_TESTIMONIALS = [
     quote: "Custom rules sunt game-changer. Avem in sfarsit incredere in bugetul de Apple Ads.",
     initials: "SB",
   },
+  {
+    id: "lucas",
+    author: "Lucas Marin",
+    role: "Founder",
+    company: "Nexus Labs",
+    quote: "De cand folosim Pulsar, timpii de analiza s-au redus cu 70%. Recomandam tuturor.",
+    initials: "LM",
+  },
 ] as const
