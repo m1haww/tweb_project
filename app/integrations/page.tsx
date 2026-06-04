@@ -85,7 +85,7 @@ export default function IntegrationsPage() {
           <h2 className="text-xl font-semibold text-foreground">Vrei o integrare noua?</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             Adaugam integrari noi in fiecare luna. Scrie-ne la{" "}
-            <span className="text-cyber-blue">integrations@pulsar.app</span> si o adaugam in roadmap.
+            <span className="text-cyber-blue">partners@pulsar.app</span> si o adaugam in roadmap.
           </p>
         </div>
         <div className="rounded-lg border border-border bg-card/40 p-6 text-center backdrop-blur-sm">
