@@ -19,6 +19,8 @@ export const CUSTOMER_LOGOS: CustomerLogo[] = [
   { id: "marlin", name: "Marlin Apps", category: "Lifestyle" },
   { id: "novacore", name: "Novacore", category: "B2B SaaS" },
   { id: "orbit", name: "Orbit Studio", category: "Gaming" },
+  { id: "voltaic", name: "Voltaic", category: "Music" },
+  { id: "lighthouse", name: "Lighthouse", category: "Education" },
 ]
 
 export const CUSTOMER_TESTIMONIALS = [
