@@ -114,4 +114,11 @@ export const INTEGRATIONS: Integration[] = [
     description: "Sincronizare evenimente din Firebase Analytics si Crashlytics.",
     status: "soon",
   },
+  {
+    id: "intercom",
+    name: "Intercom",
+    category: "Comunicare",
+    description: "Trimite evenimente Pulsar catre Intercom pentru segmentare avansata.",
+    status: "soon",
+  },
 ]
