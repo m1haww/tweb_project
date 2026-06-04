@@ -59,6 +59,11 @@ export default function IntegrationsPage() {
             <IntegrationCard key={integration.id} integration={integration} index={index} />
           ))}
         </div>
+        {filtered.length === 0 && (
+          <p className="text-center text-sm text-muted-foreground">
+            Nicio integrare in categoria aceasta momentan.
+          </p>
+        )}
 
         <div className="rounded-lg border border-border bg-card/40 p-8 backdrop-blur-sm">
           <h2 className="text-xl font-semibold text-foreground">Vrei o integrare noua?</h2>
