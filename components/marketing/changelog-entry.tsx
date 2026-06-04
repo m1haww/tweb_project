@@ -16,12 +16,15 @@ const TAG_STYLE: Record<ChangelogTag, string> = {
 }
 
 export function ChangelogEntry({ entry, index }: ChangelogEntryProps) {
-  const formattedDate = new Date(entry.date).toLocaleDateString("ro-RO", {
+  const entryDate = new Date(entry.date)
+  const formattedDate = entryDate.toLocaleDateString("ro-RO", {
     day: "numeric",
     month: "long",
     year: "numeric",
   })
-
+  const now = new Date()
+  const daysAgo = Math.floor((now.getTime() - entryDate.getTime()) / (1000 * 60 * 60 * 24))
+  const relativeLabel = daysAgo < 30 ? `acum ${daysAgo} zile` : null
   return (
     <motion.article
       initial={{ opacity: 0, y: 16 }}
@@ -40,7 +43,10 @@ export function ChangelogEntry({ entry, index }: ChangelogEntryProps) {
         >
           {entry.version}
         </span>
-        <span className="text-xs text-muted-foreground">{formattedDate}</span>
+       <span className="text-xs text-muted-foreground">{formattedDate}</span>
+        {relativeLabel && (
+          <span className="text-xs text-cyber-blue">· {relativeLabel}</span>
+        )}
         <div className="ml-auto flex flex-wrap gap-1.5">
           {entry.tags.map((tag) => (
             <span
