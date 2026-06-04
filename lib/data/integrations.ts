@@ -107,5 +107,11 @@ export const INTEGRATIONS: Integration[] = [
     description: "Embed-eaza reports Pulsar direct in Notion pages.",
     status: "soon",
   },
-  
+  {
+    id: "firebase",
+    name: "Firebase",
+    category: "Analytics",
+    description: "Sincronizare evenimente din Firebase Analytics si Crashlytics.",
+    status: "soon",
+  },
 ]
