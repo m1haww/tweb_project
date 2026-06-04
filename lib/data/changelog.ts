@@ -10,6 +10,14 @@ export interface ChangelogEntry {
 }
 
 export const CHANGELOG: ChangelogEntry[] = [
+  {
+    id: "v2-6",
+    version: "v2.6",
+    date: "2026-06-02",
+    title: "Dark mode toggle",
+    description: "Switch usor intre tema light si dark din header. Persistenta in localStorage.",
+    tags: ["Improvement"],
+  },
     {
     id: "v2-5",
     version: "v2.5",
