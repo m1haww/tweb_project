@@ -28,7 +28,7 @@ export function ChangelogEntry({ entry, index }: ChangelogEntryProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
-      className="relative rounded-lg border border-border bg-card/60 p-6 backdrop-blur-sm transition-colors hover:border-cyber-blue/40"
+      className="relative rounded-lg border border-border bg-card/60 p-7 pl-14 backdrop-blur-sm transition-colors hover:border-cyber-blue/40"
     >
       <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-full border border-cyber-blue/40 bg-cyber-blue/10">
         <Zap className="h-4 w-4 text-cyber-blue" />
