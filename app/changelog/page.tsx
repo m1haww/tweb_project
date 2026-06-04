@@ -18,7 +18,7 @@ export default function ChangelogPage() {
             className="text-5xl font-bold tracking-tight text-foreground"
             style={{ fontFamily: "var(--font-orbitron)" }}
           >
-            Changelog
+            Changelog & Releases
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
             Toate update-urile, fix-urile si imbunatatirile pe care le-am livrat. Mereu in ordine cronologica.
