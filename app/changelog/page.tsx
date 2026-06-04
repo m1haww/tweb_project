@@ -21,7 +21,7 @@ export default function ChangelogPage() {
             Changelog & Releases
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Toate update-urile, fix-urile si imbunatatirile pe care le-am livrat. Mereu in ordine cronologica.
+            Toate update-urile, in ordine cronologica.
           </p>
         </div>
 
