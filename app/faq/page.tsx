@@ -33,5 +33,11 @@ export default function FAQPage() {
         </div>
       </motion.div>
     </div>
+    <div className="rounded-lg border border-border bg-card/40 p-8 text-center backdrop-blur-sm">
+          <h2 className="text-xl font-semibold text-foreground">Inca ai intrebari?</h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Echipa noastra raspunde in mai putin de o ora in zilele lucratoare.
+          </p>
+        </div>
   )
 }
