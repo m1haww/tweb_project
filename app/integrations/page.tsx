@@ -40,10 +40,11 @@ export default function IntegrationsPage() {
 
         <div className="flex flex-wrap gap-2">
           {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+            <motion.button
+            key={cat}
+            onClick={() => setActive(cat)}
+            whileTap={{ scale: 0.95 }}
+            className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
                 active === cat
                   ? "border-cyber-blue bg-cyber-blue/10 text-cyber-blue"
                   : "border-border text-muted-foreground hover:border-cyber-blue/40"
