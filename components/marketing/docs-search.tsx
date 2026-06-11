@@ -1,49 +1,72 @@
 "use client"
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Search, Command } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Search, X } from "lucide-react"
+import { DOCS_ARTICLES } from "@/lib/data/docs-articles"
+import Link from "next/link"
 
 interface DocsSearchProps {
-  placeholder?: string
+  onClose?: () => void
 }
 
-export function DocsSearch({ placeholder = "Cauta in documentatie..." }: DocsSearchProps) {
+export function DocsSearch({ onClose }: DocsSearchProps) {
   const [query, setQuery] = useState("")
-  const [focused, setFocused] = useState(false)
+  const [results, setResults] = useState<typeof DOCS_ARTICLES>([])
+
+  useEffect(() => {
+    if (query.length < 2) {
+      setResults([])
+      return
+    }
+
+    const filtered = DOCS_ARTICLES.filter(
+      (article) =>
+        article.title.toLowerCase().includes(query.toLowerCase()) ||
+        article.summary.toLowerCase().includes(query.toLowerCase())
+    )
+    setResults(filtered.slice(0, 5))
+  }, [query])
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      className="relative w-full"
-    >
-      <div
-        className={`flex items-center gap-3 rounded-lg border bg-card/60 px-4 py-3 backdrop-blur-sm transition-colors ${
-          focused ? "border-cyber-blue/40" : "border-border"
-        }`}
-      >
-        <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          placeholder={placeholder}
-          className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
-        />
-        <span className="hidden items-center gap-1 rounded border border-border bg-card px-2 py-0.5 text-xs text-muted-foreground md:inline-flex">
-          <Command className="h-3 w-3" />
-          K
-        </span>
-      </div>
-      {focused && query.length > 0 && (
-        <div className="absolute left-0 right-0 top-full mt-2 rounded-lg border border-border bg-card/95 p-3 text-sm text-muted-foreground backdrop-blur-sm">
-          Cautarea full-text vine in curand. Foloseste navigarea din sidebar.
+    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/50 backdrop-blur-sm">
+      <div className="mt-20 w-full max-w-2xl rounded-lg border border-border bg-card/95 p-4 shadow-xl">
+        <div className="flex items-center border-b border-border pb-2">
+          <Search className="h-5 w-5 text-muted-foreground" />
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Cauta in documentatie..."
+            className="flex-1 bg-transparent px-3 py-2 text-foreground outline-none placeholder:text-muted-foreground"
+            autoFocus
+          />
+          {onClose && (
+            <button onClick={onClose} className="rounded p-1 hover:bg-card">
+              <X className="h-4 w-4 text-muted-foreground" />
+            </button>
+          )}
         </div>
-      )}
-    </motion.div>
+        {results.length > 0 && (
+          <div className="mt-3 space-y-2">
+            {results.map((result) => (
+              <Link
+                key={result.id}
+                href={`/docs/${result.slug}`}
+                onClick={onClose}
+                className="block rounded-lg p-3 transition-colors hover:bg-cyber-blue/10"
+              >
+                <h4 className="font-medium text-foreground">{result.title}</h4>
+                <p className="text-sm text-muted-foreground">{result.summary}</p>
+              </Link>
+            ))}
+          </div>
+        )}
+        {query.length >= 2 && results.length === 0 && (
+          <p className="mt-3 text-center text-sm text-muted-foreground">
+            Nu s-au gasit rezultate pentru &quot;{query}&quot;
+          </p>
+        )}
+      </div>
+    </div>
   )
 }
