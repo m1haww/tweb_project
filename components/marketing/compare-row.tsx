@@ -2,65 +2,52 @@
 
 import { Check, X, Minus, Plus } from "lucide-react"
 import type { CompareFeature, FeatureSupport } from "@/lib/data/compare-features"
-import type { CompareCompetitor } from "@/lib/data/compare-competitors"
 
 interface CompareRowProps {
   feature: CompareFeature
-  competitors: CompareCompetitor[]
-  highlightCompetitor?: string
 }
 
-function SupportCell({ support, highlight }: { support: FeatureSupport; highlight?: boolean }) {
-  const baseClass = `inline-flex h-7 w-7 items-center justify-center rounded-full ${
-    highlight ? "ring-1 ring-cyber-blue/40" : ""
-  }`
-  switch (support) {
-    case "yes":
-      return (
-        <span className={`${baseClass} bg-emerald-500/10 text-emerald-400`}>
-          <Check className="h-4 w-4" />
-        </span>
-      )
-    case "no":
-      return (
-        <span className={`${baseClass} bg-red-500/10 text-red-400`}>
-          <X className="h-4 w-4" />
-        </span>
-      )
-    case "partial":
-      return (
-        <span className={`${baseClass} bg-amber-500/10 text-amber-400`}>
-          <Minus className="h-4 w-4" />
-        </span>
-      )
-    case "addon":
-      return (
-        <span className={`${baseClass} bg-cyber-blue/10 text-cyber-blue`} title="Disponibil ca add-on">
-          <Plus className="h-4 w-4" />
-        </span>
-      )
-  }
+const SUPPORT_ICON: Record<FeatureSupport, { icon: React.ReactNode; label: string; className: string }> = {
+  yes: { icon: <Check className="h-4 w-4" />, label: "Da", className: "text-emerald-400" },
+  no: { icon: <X className="h-4 w-4" />, label: "Nu", className: "text-red-400" },
+  partial: { icon: <Minus className="h-4 w-4" />, label: "Partial", className: "text-amber-400" },
+  addon: { icon: <Plus className="h-4 w-4" />, label: "Add-on", className: "text-cyber-blue" },
 }
 
-export function CompareRow({ feature, competitors, highlightCompetitor }: CompareRowProps) {
+export function CompareRow({ feature }: CompareRowProps) {
   return (
-    <tr className="border-b border-border/60 transition-colors hover:bg-card/40">
-      <td className="px-4 py-3">
-        <p className="font-medium text-foreground">{feature.name}</p>
-        <p className="mt-0.5 text-xs text-muted-foreground">{feature.description}</p>
+    <tr className="border-b border-border transition-colors hover:bg-card/40">
+      <td className="p-3 text-sm">
+        <div>
+          <span className="font-medium text-foreground">{feature.name}</span>
+          <p className="text-xs text-muted-foreground">{feature.description}</p>
+        </div>
       </td>
-      <td className="px-4 py-3 text-center">
-        <SupportCell support={feature.support.pulsar} highlight />
+      <td className="p-3 text-center">
+        <div className={`inline-flex items-center justify-center ${SUPPORT_ICON[feature.support.pulsar].className}`}>
+          {SUPPORT_ICON[feature.support.pulsar].icon}
+        </div>
       </td>
-      {competitors.map((c) => {
-        const key = c.id as keyof typeof feature.support
-        const support = feature.support[key]
-        return (
-          <td key={c.id} className="px-4 py-3 text-center">
-            <SupportCell support={support} highlight={highlightCompetitor === c.slug} />
-          </td>
-        )
-      })}
-    </tr>
+      <td className="p-3 text-center">
+        <div className={`inline-flex items-center justify-center ${SUPPORT_ICON[feature.support.compa].className}`}>
+          {SUPPORT_ICON[feature.support.compa].icon}
+        </div>
+      </td>
+      <td className="p-3 text-center">
+        <div className={`inline-flex items-center justify-center ${SUPPORT_ICON[feature.support.compb].className}`}>
+          {SUPPORT_ICON[feature.support.compb].icon}
+        </div>
+      </td>
+      <td className="p-3 text-center">
+        <div className={`inline-flex items-center justify-center ${SUPPORT_ICON[feature.support.compc].className}`}>
+          {SUPPORT_ICON[feature.support.compc].icon}
+        </div>
+      </td>
+      <td className="p-3 text-center">
+        <div className={`inline-flex items-center justify-center ${SUPPORT_ICON[feature.support.compd].className}`}>
+          {SUPPORT_ICON[feature.support.compd].icon}
+        </div>
+      </td>
+     </>
   )
 }
