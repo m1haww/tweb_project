@@ -1,48 +1,57 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Link from "next/link"
-import type { DocsSection } from "@/lib/data/docs-sections"
+import { usePathname } from "next/navigation"
+import { DOCS_SECTIONS } from "@/lib/data/docs-sections"
+import { DOCS_ARTICLES } from "@/lib/data/docs-articles"
+import { motion } from "framer-motion"
 
 interface DocsSidebarProps {
-  sections: DocsSection[]
-  activeSection?: string
+  currentSlug?: string
 }
 
-export function DocsSidebar({ sections, activeSection }: DocsSidebarProps) {
+export function DocsSidebar({ currentSlug }: DocsSidebarProps) {
+  const pathname = usePathname()
+
   return (
-    <motion.aside
-      initial={{ opacity: 0, x: -10 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.4 }}
-      className="sticky top-24 h-fit w-full rounded-lg border border-border bg-card/60 p-6 backdrop-blur-sm md:w-64"
-    >
-      <p className="mb-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-        Documentatie
-      </p>
-      <nav className="space-y-1">
-        {sections.map((section) => {
-          const isActive = activeSection === section.slug
+    <aside className="sticky top-24 h-[calc(100vh-6rem)] overflow-y-auto pr-4">
+      <div className="space-y-6">
+        {DOCS_SECTIONS.map((section, idx) => {
+          const sectionArticles = DOCS_ARTICLES.filter((a) => a.section === section.id)
+          const isActive = pathname?.includes(`/docs/${section.slug}`) || currentSlug && sectionArticles.some(a => a.slug === currentSlug)
+
           return (
-            <Link
+            <motion.div
               key={section.id}
-              href={`/docs#${section.slug}`}
-              className={`flex items-center justify-between rounded-md px-3 py-2 text-sm transition-colors ${
-                isActive
-                  ? "bg-cyber-blue/10 text-cyber-blue"
-                  : "text-muted-foreground hover:bg-card hover:text-foreground"
-              }`}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: idx * 0.05 }}
+              className="space-y-2"
             >
-              <span>{section.title}</span>
-              <span className="text-xs opacity-60">{section.articleCount}</span>
-            </Link>
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-cyber-blue">
+                  {section.title}
+                </span>
+              </div>
+              <div className="space-y-1 border-l border-border pl-3">
+                {sectionArticles.map((article) => (
+                  <Link
+                    key={article.id}
+                    href={`/docs/${article.slug}`}
+                    className={`block py-1 text-sm transition-colors hover:text-cyber-blue ${
+                      currentSlug === article.slug
+                        ? "text-cyber-blue"
+                        : "text-muted-foreground"
+                    }`}
+                  >
+                    {article.title}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
           )
         })}
-      </nav>
-      <div className="mt-6 rounded-md border border-cyber-blue/40 bg-cyber-blue/10 p-3 text-xs text-muted-foreground">
-        Cauti ceva anume? Foloseste cautarea de mai sus sau scrie-ne la{" "}
-        <span className="text-cyber-blue">docs@pulsar.app</span>.
       </div>
-    </motion.aside>
+    </aside>
   )
 }
