@@ -1,8 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowLeft, ArrowRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import type { DocsArticle } from "@/lib/data/docs-articles"
 
 interface DocsNextPrevProps {
@@ -12,43 +11,39 @@ interface DocsNextPrevProps {
 
 export function DocsNextPrev({ prev, next }: DocsNextPrevProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4 }}
-      className="grid gap-3 border-t border-border pt-8 md:grid-cols-2"
-    >
+    <div className="mt-12 flex justify-between gap-4 border-t border-border pt-8">
       {prev ? (
         <Link
           href={`/docs/${prev.slug}`}
-          className="group rounded-lg border border-border bg-card/60 p-4 backdrop-blur-sm transition-colors hover:border-cyber-blue/40"
+          className="group flex flex-1 items-start gap-2 rounded-lg border border-border p-4 transition-colors hover:border-cyber-blue/40"
         >
-          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-            <ArrowLeft className="h-3 w-3" /> Anterior
-          </span>
-          <p className="mt-1 font-semibold text-foreground transition-colors group-hover:text-cyber-blue">
-            {prev.title}
-          </p>
+          <ChevronLeft className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-cyber-blue" />
+          <div>
+            <p className="text-xs text-muted-foreground">Anterior</p>
+            <p className="text-sm font-medium text-foreground group-hover:text-cyber-blue">
+              {prev.title}
+            </p>
+          </div>
         </Link>
       ) : (
-        <div />
+        <div className="flex-1" />
       )}
       {next ? (
         <Link
           href={`/docs/${next.slug}`}
-          className="group rounded-lg border border-border bg-card/60 p-4 text-right backdrop-blur-sm transition-colors hover:border-cyber-blue/40"
+          className="group flex flex-1 items-start justify-end gap-2 rounded-lg border border-border p-4 text-right transition-colors hover:border-cyber-blue/40"
         >
-          <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
-            Urmator <ArrowRight className="h-3 w-3" />
-          </span>
-          <p className="mt-1 font-semibold text-foreground transition-colors group-hover:text-cyber-blue">
-            {next.title}
-          </p>
+          <div>
+            <p className="text-xs text-muted-foreground">Următor</p>
+            <p className="text-sm font-medium text-foreground group-hover:text-cyber-blue">
+              {next.title}
+            </p>
+          </div>
+          <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-colors group-hover:text-cyber-blue" />
         </Link>
       ) : (
-        <div />
+        <div className="flex-1" />
       )}
-    </motion.div>
+    </div>
   )
 }
